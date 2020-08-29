@@ -1,0 +1,10 @@
+﻿WITH A AS (SELECT Sum(Score) as tR0
+	, Sum(CASE WHEN TemperID = 1 THEN 1 ELSE 0 END) as tR1
+	, Sum(CASE WHEN TemperID = 2 THEN 1 ELSE 0 END) as tR2 
+	, Sum(CASE WHEN TemperID = 3 THEN 1 ELSE 0 END) as tR3  
+	, Sum(CASE WHEN TemperID = 4 THEN 1 ELSE 0 END) as tR4  
+	, Sum(CASE WHEN TemperID = 5 THEN 1 ELSE 0 END) as tR5  
+	, Sum(CASE WHEN TemperID = 6 THEN 1 ELSE 0 END) as tR6  
+	, Sum(CASE WHEN TemperID = 7 THEN 1 ELSE 0 END) as tR7   
+	FROM bgmemories
+)

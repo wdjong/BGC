@@ -1,0 +1,78 @@
+﻿<Window x:Class="BGC.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Backgammon" Height="326" Width="300" Loaded="Window_Loaded" Icon="BACKG.ico" Background="LightGray">
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="mnuMain" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Save" Click="BtnSave_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Save the current state of a game.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Open" Click="BtnLoad_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Load a saved game.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Dump" Click="BtnDump_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Save the game history as a text file</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="E_xit" Click="BtnExit_Click" />
+            </MenuItem>
+            <MenuItem Header="_Play">
+                <MenuItem Header="_Human" Click="BtnPlayH0H1_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Play against another human... or yourself.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Computer" Click="BtnPlayC0H1_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Play against the computer.</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Auto" Click="BtnPlayC0C1_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Let the computer play itself (for learning purposes)</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Tools">
+                <MenuItem Header="_Settings..." Click="BtnSettings_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Save your preferences</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Reset Learning..." Click="BtnReset_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Remove any learned information</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="Manual" Click="BtnManual_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Displays BGHelp.htm</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <!--<Button Grid.Column="0" Grid.Row="0" Name="btnSave" Content="Save" HorizontalAlignment="Left"  Margin="3,3,3,3" VerticalAlignment="Top" Width="75" Click="BtnSave_Click"/>
+        <Button Grid.Column="0" Grid.Row="0" Name="btnDump" Content="Dump" HorizontalAlignment="Center"  Margin="3,3,3,3" VerticalAlignment="Top" Width="75" Click="BtnDump_Click"/>
+        <Button Grid.Column="0" Grid.Row="0" Name="btnLoad" Content="Load" HorizontalAlignment="Right"  Margin="3,3,3,3" VerticalAlignment="Top" Width="75" Click="BtnLoad_Click"/>-->
+        <!--<Button Grid.Column="0" Grid.Row="2" Name="btnPlayC0H1" Content="vs Computer" HorizontalAlignment="Left" Margin="3,3,3,3" VerticalAlignment="Top" Width="75" Click="BtnPlayC0H1_Click"/>-->
+        <Button Grid.Column="0" Grid.Row="2" Name="btnPlayC0C1" Content="Auto" HorizontalAlignment="Center" Margin="3,3,3,3" VerticalAlignment="Top" Width="75" Click="BtnPlayC0C1_Click" Visibility="Hidden"/>
+        <!--<Button Grid.Column="0" Grid.Row="2" Name="btnPlayH0H1" Content="vs Human" HorizontalAlignment="Right" Margin="3,3,3,3" VerticalAlignment="Top" Width="75" Click="BtnPlayH0H1_Click"/>-->
+        <TextBox Grid.Column="0" Grid.Row="3" x:Name="txtNotation" Margin="3,3,3,3" TextWrapping="Wrap" Width="Auto" VerticalScrollBarVisibility="Auto"/>
+        <TextBox Grid.Column="0" Grid.Row="4" x:Name="txtMessage" Margin="3,3,3,3" TextWrapping="Wrap" Width="Auto" VerticalScrollBarVisibility="Auto"/>
+    </Grid>
+</Window>

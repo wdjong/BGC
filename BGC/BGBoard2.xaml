@@ -1,0 +1,12 @@
+﻿<Window Name="Window1" x:Class="BGC.BGBoard2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Board" Height="323" Width="300" Loaded="Window_Loaded" SizeChanged="Board_SizeChanged">
+    <Grid Name="Grid1">
+        <Canvas Name="MyCanvas" MouseMove="Board_MouseMove">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Assets/BGBoard.PNG"/>
+            </Canvas.Background>
+        </Canvas>
+    </Grid>
+</Window>

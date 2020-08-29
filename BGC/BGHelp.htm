@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Backgammon help</title>
+</head>
+<body>
+    <h1>Basic play</h1>
+
+    <p>From the <b>Play</b> menu, select <b>computer</b>. You move the red pieces (stones) anti-clockwise; (Left on top points, right on the bottom points). </p>
+
+    <p>The dice is thrown automatically.</p>
+
+    <p>Each turn you can move 1 piece twice or move 2 pieces to use each of your dice. If you throw double, you can move 4 times.</p>
+
+    <p>
+        To move, drag a piece onto its destination point. On the second part of your move or when you have a double you can just click on a piece
+        because the program can work out which dice to use.
+    </p>
+
+    <p>You can take (hit) your opponent's pieces (blots) when they are on their own on a point that you can reach with your throw.</p>
+
+    <p>If a piece is taken, it sits on the bar and must be brought back into play before other pieces can be moved.</p>
+
+    <p>
+        Once you get all your piece home (into your last 6 points), you can bear them off. You do this by dragging them on to the bar.
+        You can use a bigger dice throw to bear off from a smaller points once there are no stones on the bigger points.
+        E.g. You can bear of from the 5th last point if you throw a six and you don’t have a piece on the 6th last point but do have one on the 5th last.
+    </p>
+
+    <h2>Temperament</h2>
+    <p>
+        The computer opponent uses a basic method of scoring each possible move and then evaluating the resulting board situation weighting various criteria by a number of factor.
+        These factor relate to strategy elements or qualities that more or less equate to temperaments. E.g. the tendency to want to take opponents pieces is called 'aggression'.
+        By playing many games against itself and other computer opponents, these factors have been optimised for general play.
+    </p>
+
+    <p>
+        In order to allow the computer to 'fine tune' its play to suite playing against you, there is a capacity to weight various characteristics, and prefer to use more successful strategies
+        in response to success. The results of this can be seen in the Tools Settings screen.
+    </p>
+
+    <p>A history of all game results is stored in gamehist.txt. (This can be used as a machine learning dataset). The left column is the the temperament of the winner.</p>
+
+    <h2>Commands</h2>
+
+    <h3>File menu</h3>
+    <h4>Save</h4>
+    <p>Save the current state of a game.</p>
+    <h4>Open</h4>
+    <p>Load a saved game.</p>
+    <h4>Dump</h4>
+    <p>Save the dice throws and current board state as a text file. (For diagnostic purposes).</p>
+    <h4>Exit</h4>
+    <p>Close the program.</p>
+
+    <h3>Play menu</h3>
+    <h4>Human</h4>
+    <p>Play against another human... or yourself.</p>
+    <h4>Computer</h4>
+    <p>Play against the computer.</p>
+    <h4>Auto</h4>
+    <p>Let the computer play itself (for learning purposes)</p>
+
+    <h3>Tools</h3>
+
+    <h4>Settings</h4>
+    <p>Save your preferences for the following;</p>
+    <p>Number of games computers play against each other. This was used in trying out different weightings to optimise the strategy. (Reinforcement learning)</p>
+    <p>Number of seconds to pause after each move. In case you want to watch a game in slow motion.</p>
+    <p>If you don't want to see every computer move, choose false. This maximises the speed of computer vs computer games</p>
+    <p>If you don't want to see the results of every game choose false. Normally, when playing many computer games it's nice to view the progress. </p>
+    <p>
+        Player 0: (who you play against)
+        0 random. This is normal setting. It picks a temperament (from those below) based on their relative success in winning games. Apart from 7 (norm),
+        the relevant characteristic is doubled. At the moment the 'adjacent / blocking / clumping' tendency has a negative value because that tendency resulted in poorer results
+        so, when 5 is selected, it's <i>less</i> likely to try to make adjacent points.'
+        , 1 running / speed, 2 make points / blocking, 3 blitz / aggression, 4 not blot / safety, 5 adjacent / blocking, 6 bear in / endgame, 7 norm / no weighting
+    </p>
+    <p>Player 1: (the other computer opponent) 0 random, 1 running / speed, 2 make points / blocking, 3 blitz / aggression, 4 not blot / safety, 5 adjacent / blocking, 6 bear in / endgame, 7 norm / no weighting</p>
+
+    <h4>Reset Learning</h4>
+    <p>Remove any learned information</p>
+
+    <h4>History</h4>
+    <p>Author: Walter de Jong</p>
+    <p>Backgammon: originally written in BASIC in 1982 on a VZ200 based on the Tandy TRS80 2 player game. (Sold via Dick Smith shops in a cassette version).</p>
+    <p>Over the years, based on available hardware and software it's been ported to various platforms in order for me to learn new things. (I.e. As features became available:
+    e.g. File system, Graphics, .NET, Database, VB -> C#, Winforms -> WPF) and as I developed ideas of how to improve the opponent; probability, machine learning concepts.
+    e.g. Osborne, IBM PC (MBasic), Assembly language (DEC Rainbow CPM86), VB 4 1998, VB 6 2001, VB.Net 2004, VS2005 ~2009, VS2008 ~2010, 2012VB ~2015</p>
+    <p>Windows Store App (WPF / XAML) ~2016</p>
+
+    <h4>Future</h4>
+    <p>Reinforcement learning (Strategy). Deep Learning (Neural networks)</p>
+
+</body>
+</html>
