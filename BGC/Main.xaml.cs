@@ -199,9 +199,6 @@ namespace BGC
             {
                 if (!inThread && !exitThread)
                 {
-                    inThread = true;
-                    btnPlayC0C1.Content = "Interrupt";
-                    btnPlayC0C1.Visibility = Visibility.Visible;
                     Thread thread = new Thread(PlayGamesC0C1); // this routine runs in a separate thread so board moves can be shown
                     thread.IsBackground = true; //<-- Set the thread to work in background https://stackoverflow.com/questions/2688923/how-to-exit-all-running-threads
                     thread.SetApartmentState(ApartmentState.STA); // https://stackoverflow.com/questions/4154429/apartmentstate-for-dummies
@@ -212,8 +209,6 @@ namespace BGC
                 else
                 {
                     exitThread = true; // stop c vs c play // set to false on exit of PlayGamesC0C1
-                    btnPlayC0C1.Visibility = Visibility.Hidden;
-                    btnPlayC0C1.Content = "Auto";
                 }
 
             }
@@ -709,6 +704,14 @@ namespace BGC
             // Run this is run in a new thread so that the screen will update as determined below
             try
             {
+                inThread = true;
+                this.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                (ThreadStart)delegate ()
+                {
+                    btnPlayC0C1.Visibility = Visibility.Visible;
+                    btnPlayC0C1.Content = "Interrupt";
+                }
+                );
                 string mWinner;
                 C0Wins = 0; //Count C0 win
                 for (int game = 0; game < cVsCgameNumber; game++)
@@ -771,7 +774,13 @@ namespace BGC
                     }
                 }
                 inThread = false; // reset
-                exitThread = false;
+                this.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                (ThreadStart)delegate ()
+                {
+                    btnPlayC0C1.Visibility = Visibility.Hidden;
+                    btnPlayC0C1.Content = "Auto";
+                }
+                );
             }
             catch (Exception ex)
             {
